@@ -33,6 +33,6 @@ public class CoordLabeler : MonoBehaviour
 
         label.text = $"({coords.x}, {coords.y})";
 
-        gameObject.transform.parent.name = coords.ToString();
+        if(!(gameObject.scene.name == gameObject.transform.parent.name)) gameObject.transform.parent.name = coords.ToString();
     }
 }

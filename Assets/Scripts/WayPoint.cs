@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class WayPoint : MonoBehaviour
 {
+    [SerializeField] GameObject ballistaPrefab;
+    [SerializeField] bool canDeployHere;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,14 @@ public class WayPoint : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnMouseDown()
+    {
+        if (canDeployHere)
+        {
+            GameObject.Instantiate(ballistaPrefab, gameObject.transform.position, Quaternion.identity);
+            canDeployHere = false;
+        }    
     }
 }
