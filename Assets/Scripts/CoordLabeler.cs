@@ -17,7 +17,7 @@ public class CoordLabeler : MonoBehaviour
     void Awake()
     {
         label = this.GetComponent<TextMeshPro>();
-        label.enabled = false;
+        label.enabled = true;
         waypoint = this.GetComponentInParent<WayPoint>();
         DisplayCoords();
     }
@@ -37,7 +37,7 @@ public class CoordLabeler : MonoBehaviour
 
     private void ColourCoordinates()
     {
-        if (waypoint != null && !waypoint.CanDeployHere)
+        if (waypoint == null || !waypoint.CanDeployHere)
         {
             label.color = notDeployableColour;
         } 

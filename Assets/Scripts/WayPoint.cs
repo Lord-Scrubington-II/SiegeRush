@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WayPoint : MonoBehaviour
 {
-    [SerializeField] private GameObject ballistaPrefab;
+    [SerializeField] private Tower ballistaPrefab;
     [SerializeField] private bool canDeployHere;
 
     public bool CanDeployHere { get => canDeployHere; set => canDeployHere = value; }
@@ -12,7 +12,7 @@ public class WayPoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //treasury = FindObjectOfType<Treasury>();    
     }
 
     // Update is called once per frame
@@ -25,8 +25,8 @@ public class WayPoint : MonoBehaviour
     {
         if (canDeployHere)
         {
-            GameObject.Instantiate(ballistaPrefab, gameObject.transform.position, Quaternion.identity);
-            canDeployHere = false;
+            bool built = ballistaPrefab.BuildTower(ballistaPrefab, transform.position);
+            canDeployHere = !built;
         }    
     }
 }

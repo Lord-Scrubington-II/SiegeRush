@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 152a9b9bc80bfa54387561d25e951f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballistaPrefab: {fileID: 3219458064393657486, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
+  ballistaPrefab: {fileID: 2633445122825018503, guid: 8a965e088bae16643aab3d07ccfd5e2e, type: 3}
   canDeployHere: 1
 --- !u!65 &254784765458471278
 BoxCollider:
@@ -244,6 +244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c1281e22b52d04a810098c3ec0f5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultColour: {r: 1, g: 1, b: 1, a: 1}
+  notDeployableColour: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!1 &5372617860274137689
 GameObject:
   m_ObjectHideFlags: 0
