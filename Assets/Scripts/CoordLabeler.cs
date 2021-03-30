@@ -4,7 +4,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-[ExecuteInEditMode]
+/// <summary>
+/// This class provides debug tools for viewing the backend coordinates of certain tiles.
+/// Move this script to the Editor folder before building the game.
+/// </summary>
+[ExecuteInEditMode] [RequireComponent(typeof(TextMeshPro))]
 public class CoordLabeler : MonoBehaviour
 {
     [SerializeField] Color defaultColour = Color.white;
@@ -31,11 +35,11 @@ public class CoordLabeler : MonoBehaviour
             DisplayCoords();
         }
 
-        ColourCoordinates();
+        ColourLabelByContext();
         ToggleLabels();
     }
 
-    private void ColourCoordinates()
+    private void ColourLabelByContext()
     {
         if (waypoint == null || !waypoint.CanDeployHere)
         {

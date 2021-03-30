@@ -33,6 +33,7 @@ public class EnemyMover : MonoBehaviour
     {
         path.Clear();
 
+        //This ensures that waypoitns are discovered in the order they are declared in hierarchy
         GameObject waypointGroup = GameObject.FindGameObjectWithTag("Path");
 
         foreach(Transform childInHierarchy in waypointGroup.transform)
@@ -53,6 +54,7 @@ public class EnemyMover : MonoBehaviour
 
             transform.LookAt(endPosition);
 
+            //smooth movement between waypoints with linear interpolation
             while(travelPercent < 1.0f)
             {
                 travelPercent += Time.deltaTime * speed;
@@ -61,6 +63,7 @@ public class EnemyMover : MonoBehaviour
             }
         }
 
+        //end-of-path directives
         thisEnemy.StealGold();
         this.gameObject.SetActive(false);
     }
