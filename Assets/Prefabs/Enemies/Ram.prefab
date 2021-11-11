@@ -128,6 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d790d1d71459e9149b8232eefeff2d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldDropQuantity: 25
+  goldTheftQuantity: 25
 --- !u!114 &-576055624273274417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path: []
-  speed: 1
+  speed: 0.8
 --- !u!114 &-1473611652292249208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54be06e759c84c446b503bb14d08243e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HPMax: 5
+  HPMax: 3
+  HPRampOnDeath: 5
   hitPoints: 0
 --- !u!65 &2625363506263085903
 BoxCollider:
