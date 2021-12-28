@@ -13,16 +13,19 @@ public class CoordLabeler : MonoBehaviour
 {
     [SerializeField] Color defaultColour = Color.white;
     [SerializeField] Color notDeployableColour = Color.grey;
+    [SerializeField] Color exploredColour = Color.yellow;
+    [SerializeField] Color pathColour = new Color(255, 120, 0); //orange
 
     TextMeshPro label;
     Vector2Int coords = new Vector2Int();
-    WayPoint waypoint;
+    GridManager gridManager;
 
     void Awake()
     {
+        gridManager = FindObjectOfType<GridManager>();
         label = this.GetComponent<TextMeshPro>();
         label.enabled = true;
-        waypoint = this.GetComponentInParent<WayPoint>();
+        
         DisplayCoords();
     }
 
@@ -41,13 +44,28 @@ public class CoordLabeler : MonoBehaviour
 
     private void ColourLabelByContext()
     {
-        if (waypoint == null || !waypoint.CanDeployHere)
+        if (gridManager == null) { return; }
+
+        Node node = gridManager.FindNodeAt(coords);
+
+        if (node != null)
         {
-            label.color = notDeployableColour;
-        } 
-        else
-        {
-            label.color = defaultColour;
+            if (!node.isWalkable)
+            {
+                label.color = notDeployableColour;
+            }
+            else if (node.isPath)
+            {
+                label.color = pathColour;
+            }
+            else if (node.isExplored)
+            {
+                label.color = exploredColour;
+            }
+            else
+            {
+                label.color = defaultColour;
+            }
         }
     }
 
@@ -58,7 +76,7 @@ public class CoordLabeler : MonoBehaviour
 
         label.text = $"({coords.x}, {coords.y})";
 
-        if(!(gameObject.scene.name == gameObject.transform.parent.name)) gameObject.transform.parent.name = coords.ToString();
+        if (!(gameObject.scene.name == gameObject.transform.parent.name)) gameObject.transform.parent.name = coords.ToString();
     }
 
     private void ToggleLabels()

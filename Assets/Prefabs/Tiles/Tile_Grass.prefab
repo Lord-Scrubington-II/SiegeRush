@@ -246,6 +246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColour: {r: 1, g: 1, b: 1, a: 1}
   notDeployableColour: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  exploredColour: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  pathColour: {r: 0.8588236, g: 0.18431373, b: 0.18431373, a: 1}
 --- !u!1 &5372617860274137689
 GameObject:
   m_ObjectHideFlags: 0

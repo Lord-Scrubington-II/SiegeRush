@@ -33,7 +33,7 @@ public class EnemyMover : MonoBehaviour
     {
         path.Clear();
 
-        //This ensures that waypoitns are discovered in the order they are declared in hierarchy
+        //This ensures that waypoints are discovered in the order they are declared in hierarchy
         GameObject waypointGroup = GameObject.FindGameObjectWithTag("Path");
 
         foreach(Transform childInHierarchy in waypointGroup.transform)
