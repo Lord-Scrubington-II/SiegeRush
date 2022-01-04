@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class Pathfinder : MonoBehaviour
 {
-    [SerializeField] Node currentSearchNode;
+    [SerializeField] Vector2Int originCoordinates;
+    [SerializeField] Vector2Int destinationCoordinates;
+    
     private Node origin;
     private Node destination;
+    private Node currentSearchNode;
     private List<Node> path;
 
     /// <summary>
@@ -38,6 +41,8 @@ public class Pathfinder : MonoBehaviour
     private void Start()
     {
         // ExploreNeighbours();
+        origin = grid[originCoordinates];
+        destination = grid[destinationCoordinates];
         ChartPath();
     }
 

@@ -27,6 +27,7 @@ public class GridManager : MonoBehaviour
         {
             return null;
         }
+
         
     }
 
@@ -58,7 +59,7 @@ public class GridManager : MonoBehaviour
                     Node currentNode = grid[coordinates];
                     Node neighbour = grid[neighbourCoords];
 
-                    if (validPoint(neighbourCoords) && neighbour.isWalkable)
+                    if (ValidPoint(neighbourCoords) && neighbour.isWalkable)
                     {
                         currentNode.neighbours.Add(neighbour);
                     }
@@ -67,7 +68,7 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    private bool validPoint(Vector2Int cell)
+    private bool ValidPoint(Vector2Int cell)
     {
         if(cell.x < 0 || cell.y < 0 || cell.x >= gridSize.x || cell.y >= gridSize.y)
         {
